@@ -94,7 +94,7 @@ def addSpaces(lettersOfWord):
     for letter in lettersOfWord:
         lettersSpaced += (str(letter) + ' ')
     return lettersSpaced
-    
+# add progressive hangman visualisation    
 def displayGameResult(lives):
     if lives == 0:
         print(f"\n  YOU GOT HUNG!             _________     ")
@@ -114,7 +114,8 @@ def displayGameResult(lives):
         print(f"               |                   / |      ")
         print(f"             _____                  / \     ")
 
-def printTimePlayed():
+# improve timer to display minutes and seconds
+    def printTimePlayed():
     toc=time.perf_counter()
     print(f"\nYou've been playing for {toc - tic:0.0f} seconds\n")
     
