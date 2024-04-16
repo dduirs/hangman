@@ -33,19 +33,24 @@ def main():
     
 def startNewGame(correctGuesses, answerLetters, lives):
     answer = generateWord()
-    lives = len(answer) + 2
-    answerLetters = list(answer)
-    correctGuesses = []
+    lives = len(answer) + chooseDifficulty()
+    answerLetters = list(answer)   
+    # print(answerLetters)         <-- uncomment to SEE ANSWER for testing purposes     
     correctGuesses += ("_"*len(answer))
     print("\n--------------------------------------------")
     print(f"Let's play HANGMAN! The word has {len(answer)} letters.")
-    print("--------------------------------------------")
+    print("--------------------------------------------\n")
     return correctGuesses, answerLetters, lives
+
+def chooseDifficulty():
+    extraLives = input("Welcome. To choose the difficulty level, enter the number of extra lives you would like to start: ")
+    if extraLives.isdigit:
+        return int(extraLives)
 
 def generateWord():
     newWord = random.word()
     while ' ' in newWord or '-' in newWord:
-        print(f'invalid word {newWord} not chosen')
+        # print(f'invalid word {newWord} not chosen')
         newWord = random.word()
     return newWord.upper()
 
